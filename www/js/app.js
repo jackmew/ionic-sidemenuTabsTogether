@@ -3,16 +3,21 @@
 var app = angular.module('demo', ['ionic']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-  $stateProvider
-  .state('root', {
+  
+  // root 
+  $stateProvider.state('root', {
       url : '/root',
       templateUrl : 'root.html',
       controller : 'RootPageController',
       onEnter: function() {
         console.log("enter root");
       }
-  })            
-  .state('fst', {
+  });
+
+
+
+  // first section
+  $stateProvider.state('fst', {
       url : '/fst',
       templateUrl : 'fst-abstract.html',
       abstract : true,
@@ -33,6 +38,24 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         }
       }
   })
+  .state('fst.first', {
+    url: '/first',
+    views: {
+        'fst': {
+            templateUrl: 'fst-first.html',
+            controller : 'FstFirstPageController'
+        }
+    }
+  })
+  .state('fst.second', {
+    url: '/second',
+    views: {
+        'fst': {
+            templateUrl: 'fst-second.html',
+            controller : 'FstSecondPageController'
+        }
+    }
+  });
 
 
   $urlRouterProvider.otherwise('/root');
@@ -49,6 +72,10 @@ app.controller('RootPageController', function($scope, $ionicSideMenuDelegate) {
 .controller('FstController', function($scope, $ionicSideMenuDelegate) {
 })
 .controller('FstHomePageController', function($scope, $ionicSideMenuDelegate) {
+})
+.controller('FstFirstPageController', function($scope, $ionicSideMenuDelegate) {
+})
+.controller('FstSecondPageController', function($scope, $ionicSideMenuDelegate) {
 })
 
 
