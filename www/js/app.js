@@ -7,8 +7,32 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
   .state('root', {
       url : '/root',
       templateUrl : 'root.html',
-      controller : 'RootPageController'
-  });
+      controller : 'RootPageController',
+      onEnter: function() {
+        console.log("enter root");
+      }
+  })            
+  .state('fst', {
+      url : '/fst',
+      templateUrl : 'fst-abstract.html',
+      abstract : true,
+      controller : 'FstController',
+      onEnter: function() {
+        console.log("enter first section abstract");
+      }
+  })
+  .state('fst.home', {
+      url: '/home',
+      views: {
+        'fst': {
+            templateUrl: 'fst-home.html',
+            controller : 'FstHomePageController',
+            onEnter: function() {
+              console.log("enter first section home");
+            }
+        }
+      }
+  })
 
 
   $urlRouterProvider.otherwise('/root');
@@ -16,6 +40,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
 app.controller('RootPageController', function($scope, $ionicSideMenuDelegate) {
   $scope.str = "sidemenu & tabs";
+})
+.controller('FstController', function($scope, $ionicSideMenuDelegate) {
+})
+.controller('FstHomePageController', function($scope, $ionicSideMenuDelegate) {
 })
 
 
