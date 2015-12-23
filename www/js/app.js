@@ -74,6 +74,42 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         }
     }
   })
+  .state('snd.chat', {
+    url: '/chat',
+    views: {
+        'snd': {
+            templateUrl: 'snd-chat.html',
+            controller : 'SndChatPageController'
+        }
+    }
+  })
+  .state('snd.chat-single', {
+    url: '/chat-single',
+    views: {
+        'snd': {
+          templateUrl: 'snd-chat-single.html',
+          controller : 'SndChatSinglePageController'
+        }
+    }
+  })
+  .state('snd.drink', {
+    url: '/drink',
+    views: {
+        'snd': {
+            templateUrl: 'snd-drink.html',
+            controller : 'SndDrinkPageController'
+        }
+    }
+  })
+  .state('snd.policy', {
+    url: '/policy',
+    views: {
+        'snd': {
+            templateUrl: 'snd-policy.html',
+            controller : 'SndPolicyPageController'
+        }
+    }
+  });
 
   $urlRouterProvider.otherwise('/root');
 }]);
@@ -101,6 +137,14 @@ app.controller('NavController', function($scope, $ionicSideMenuDelegate) {
 app.controller('SndController', function($scope, $ionicSideMenuDelegate) {
 })
 .controller('SndHomePageController', function($scope, $ionicSideMenuDelegate) {
+})
+.controller('SndChatPageController', function($scope, $ionicSideMenuDelegate) {
+})
+.controller('SndChatSinglePageController', function($scope, $ionicSideMenuDelegate) {
+})
+.controller('SndDrinkPageController', function($scope, $ionicSideMenuDelegate) {
+})
+.controller('SndPolicyPageController', function($scope, $ionicSideMenuDelegate) {
 })
 
 
