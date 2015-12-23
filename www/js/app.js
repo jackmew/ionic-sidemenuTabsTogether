@@ -41,6 +41,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 app.controller('RootPageController', function($scope, $ionicSideMenuDelegate) {
   $scope.str = "sidemenu & tabs";
 })
+.controller('NavController', function($scope, $ionicSideMenuDelegate) {
+  $scope.toggleLeft = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
+})
 .controller('FstController', function($scope, $ionicSideMenuDelegate) {
 })
 .controller('FstHomePageController', function($scope, $ionicSideMenuDelegate) {
