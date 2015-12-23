@@ -58,13 +58,32 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
   });
 
 
+  // second sections
+  $stateProvider.state('snd', {
+    url : '/snd',
+    templateUrl : 'snd-abstract.html',
+    abstract : true,
+    controller : 'SndController'
+  })
+  .state('snd.home', {
+    url: '/home',
+    views: {
+        'snd': {
+            templateUrl: 'snd-home.html',
+            controller : 'SndHomePageController'
+        }
+    }
+  })
+
   $urlRouterProvider.otherwise('/root');
 }]);
-
+// root controller
 app.controller('RootPageController', function($scope, $ionicSideMenuDelegate) {
   $scope.str = "sidemenu & tabs";
-})
-.controller('NavController', function($scope, $ionicSideMenuDelegate) {
+});
+
+// first section controller
+app.controller('NavController', function($scope, $ionicSideMenuDelegate) {
   $scope.toggleLeft = function() {
     $ionicSideMenuDelegate.toggleLeft();
   };
@@ -76,6 +95,12 @@ app.controller('RootPageController', function($scope, $ionicSideMenuDelegate) {
 .controller('FstFirstPageController', function($scope, $ionicSideMenuDelegate) {
 })
 .controller('FstSecondPageController', function($scope, $ionicSideMenuDelegate) {
+});
+
+// second section controller
+app.controller('SndController', function($scope, $ionicSideMenuDelegate) {
+})
+.controller('SndHomePageController', function($scope, $ionicSideMenuDelegate) {
 })
 
 
